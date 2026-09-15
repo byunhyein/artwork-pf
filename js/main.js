@@ -1,5 +1,7 @@
 const folders = document.querySelectorAll('.folder');
 const liveClock = document.querySelector('.live-clock');
+const dockItems = document.querySelectorAll('.dock-item');
+const artworkCategories = ['person', 'character', 'drawing', 'object'];
 
 folders.forEach((folder) => {
   folder.addEventListener('click', (event) => {
@@ -30,3 +32,23 @@ function updateClock() {
 
 updateClock();
 window.setInterval(updateClock, 60_000);
+
+function updateDockActiveState() {
+  const currentTarget = window.location.hash.slice(1) || 'archive';
+  dockItems.forEach((item) => {
+    item.classList.toggle('is-active', item.dataset.dockTarget === currentTarget);
+  });
+}
+
+dockItems.forEach((item) => {
+  item.addEventListener('click', (event) => {
+    if (item.dataset.dockTarget !== 'random') return;
+
+    event.preventDefault();
+    const randomCategory = artworkCategories[Math.floor(Math.random() * artworkCategories.length)];
+    window.location.hash = randomCategory;
+  });
+});
+
+updateDockActiveState();
+window.addEventListener('hashchange', updateDockActiveState);

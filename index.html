@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="HYE!N의 개인 작업 아카이브" />
   <title>Artwork Archive — HYE!N</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" />
   <link rel="stylesheet" href="css/style.css" />
@@ -36,7 +37,15 @@
         </nav>
       </section>
       <div class="landscape" aria-hidden="true"><div class="cloud cloud--left"></div><div class="cloud cloud--right"></div><div class="hill hill--back"></div><div class="hill hill--front"></div><div class="tree tree--one"></div><div class="tree tree--two"></div><div class="tree tree--three"></div><div class="house"><i></i><b></b></div></div>
-      <nav class="dock" aria-label="빠른 실행"><a href="#archive" class="dock-icon dock-icon--finder" aria-label="Index"><span>⌂</span></a><a href="#works" class="dock-icon dock-icon--calendar" aria-label="Works"><span>20</span></a><a href="#notes" class="dock-icon dock-icon--notes" aria-label="Notes"><span>≡</span></a><a href="#drawing" class="dock-icon dock-icon--pencil" aria-label="Drawing"><span>✎</span></a><a href="#favorites" class="dock-icon dock-icon--music" aria-label="Favorites"><span>♪</span></a><a href="#about" class="dock-icon dock-icon--flower" aria-label="About"><span>✿</span></a><span class="dock-divider" aria-hidden="true"></span><a href="#trash" class="dock-icon dock-icon--trash" aria-label="휴지통"><span>▱</span></a></nav>
+      <nav class="dock artwork-dock" aria-label="Artwork 카테고리">
+        <a class="dock-item" href="#archive" data-dock-target="archive" aria-label="ARCHIVE"><img src="images/dock/archive.png" alt="" /></a>
+        <a class="dock-item" href="#person" data-dock-target="person" aria-label="PERSON"><img src="images/dock/person.png" alt="" /></a>
+        <a class="dock-item" href="#character" data-dock-target="character" aria-label="CHARACTER"><img src="images/dock/character.png" alt="" /></a>
+        <a class="dock-item" href="#drawing" data-dock-target="drawing" aria-label="DRAWING"><img src="images/dock/drawing.png" alt="" /></a>
+        <a class="dock-item" href="#object" data-dock-target="object" aria-label="OBJECT"><img src="images/dock/object.png" alt="" /></a>
+        <span class="dock-divider" aria-hidden="true"></span>
+        <a class="dock-item" href="#random" data-dock-target="random" aria-label="RANDOM"><img src="images/dock/random.png" alt="" /></a>
+      </nav>
     </div>
     <footer>© 2026 HYEIN. ALL RIGHTS RESERVED.</footer>
   </main>

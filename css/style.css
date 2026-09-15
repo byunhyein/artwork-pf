@@ -23,3 +23,24 @@ footer{position:absolute;right:0;bottom:0;left:0;z-index:5;display:flex;align-it
 .folder-grid{transform:translate(-50%,-40px)}
 .dock{bottom:calc(var(--footer-height) + 38px)}
 @media(max-width:760px){.folder-grid{transform:translateY(-40px)}.dock{bottom:calc(var(--footer-height) + 38px)}}
+
+/* Artwork Dock: provided felt icons and category labels. */
+.artwork-dock{position:fixed;z-index:10;bottom:calc(var(--footer-height) + 24px);display:flex;align-items:flex-start;gap:clamp(.55rem,1.15vw,1rem);padding:.7rem clamp(.9rem,1.5vw,1.35rem);border:1px solid rgba(255,255,255,.65);border-radius:28px;background:rgba(255,255,255,.82);box-shadow:0 8px 30px rgba(70,80,90,.12);backdrop-filter:blur(14px)}
+.dock-item{position:relative;display:flex;flex-direction:column;align-items:center;gap:.28rem;min-width:3.7rem;color:#47515a;font-size:1rem;font-weight:600;letter-spacing:.06em;line-height:1;transition:transform .25s ease}
+.dock-item img{display:block;width:2.75rem;height:2.75rem;object-fit:contain}
+.dock-item:hover,.dock-item:focus-visible{transform:translateY(-5px) scale(1.05);outline:none}
+.dock-item.is-active::after{position:absolute;bottom:-.4rem;width:.48rem;height:.48rem;border-radius:50%;background:#6ca866;content:""}
+.artwork-dock .dock-divider{width:1px;height:3.6rem;align-self:center;margin:0 .1rem;background:rgba(83,96,104,.2)}
+@media(max-width:760px){.artwork-dock{bottom:calc(var(--footer-height) + 14px);gap:.3rem;padding:.5rem .55rem;border-radius:22px}.dock-item{min-width:2.85rem;font-size:1rem;letter-spacing:0}.dock-item img{width:2.15rem;height:2.15rem}.artwork-dock .dock-divider{height:2.85rem;margin:0 .05rem}.dock-item.is-active::after{bottom:-.28rem;width:.4rem;height:.4rem}}
+
+/* Keep the image-only Dock at the original compact pill scale. */
+.artwork-dock{gap:.5rem;padding:.85rem .75rem}
+.dock-item{display:grid;place-items:center;min-width:3.5rem}
+.dock-item img{width:2.5rem;height:2.5rem}
+.dock-item.is-active::after{bottom:-.38rem}
+.artwork-dock .dock-divider{height:2.65rem;margin:0 .1rem}
+@media(max-width:760px){.artwork-dock{gap:.32rem;padding:.58rem .48rem}.dock-item{min-width:2.55rem}.dock-item img{width:2rem;height:2rem}.artwork-dock .dock-divider{height:2.15rem;margin:0 .04rem}}
+
+/* A tiny garden-flower indicator replaces the plain active dot. */
+.dock-item.is-active::after{bottom:-.22rem;width:.32rem;height:.32rem;border-radius:50%;background:#ffc5d3;box-shadow:0 -.24rem 0 #ffc5d3,.23rem -.08rem 0 #ffc5d3,.15rem .19rem 0 #ffc5d3,-.15rem .19rem 0 #ffc5d3,-.23rem -.08rem 0 #ffc5d3}
+@media(max-width:760px){.dock-item.is-active::after{bottom:-.12rem;width:.25rem;height:.25rem;box-shadow:0 -.19rem 0 #ffc5d3,.18rem -.06rem 0 #ffc5d3,.12rem .15rem 0 #ffc5d3,-.12rem .15rem 0 #ffc5d3,-.18rem -.06rem 0 #ffc5d3}}
