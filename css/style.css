@@ -25,7 +25,7 @@ footer{position:absolute;right:0;bottom:0;left:0;z-index:5;display:flex;align-it
 @media(max-width:760px){.folder-grid{transform:translateY(-40px)}.dock{bottom:calc(var(--footer-height) + 38px)}}
 
 /* Artwork Dock: provided felt icons and category labels. */
-.artwork-dock{position:fixed;z-index:10;bottom:calc(var(--footer-height) + 24px);display:flex;align-items:flex-start;gap:clamp(.55rem,1.15vw,1rem);padding:.7rem clamp(.9rem,1.5vw,1.35rem);border:1px solid rgba(255,255,255,.65);border-radius:28px;background:rgba(255,255,255,.82);box-shadow:0 8px 30px rgba(70,80,90,.12);backdrop-filter:blur(14px)}
+.artwork-dock{position:fixed;z-index:10;bottom:calc(var(--footer-height) + 24px);display:flex;align-items:flex-start;gap:clamp(.55rem,1.15vw,1rem);padding:.7rem clamp(.9rem,1.5vw,1.35rem);border:1px solid rgba(255,255,255,.5);border-radius:28px;background:rgba(255,255,255,.56);box-shadow:0 8px 22px rgba(70,80,90,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .dock-item{position:relative;display:flex;flex-direction:column;align-items:center;gap:.28rem;min-width:3.7rem;color:#47515a;font-size:1rem;font-weight:600;letter-spacing:.06em;line-height:1;transition:transform .25s ease}
 .dock-item img{display:block;width:2.75rem;height:2.75rem;object-fit:contain}
 .dock-item:hover,.dock-item:focus-visible{transform:translateY(-5px) scale(1.05);outline:none}
@@ -42,5 +42,22 @@ footer{position:absolute;right:0;bottom:0;left:0;z-index:5;display:flex;align-it
 @media(max-width:760px){.artwork-dock{gap:.32rem;padding:.58rem .48rem}.dock-item{min-width:2.55rem}.dock-item img{width:2rem;height:2rem}.artwork-dock .dock-divider{height:2.15rem;margin:0 .04rem}}
 
 /* A tiny garden-flower indicator replaces the plain active dot. */
-.dock-item.is-active::after{bottom:-.22rem;width:.32rem;height:.32rem;border-radius:50%;background:#ffc5d3;box-shadow:0 -.24rem 0 #ffc5d3,.23rem -.08rem 0 #ffc5d3,.15rem .19rem 0 #ffc5d3,-.15rem .19rem 0 #ffc5d3,-.23rem -.08rem 0 #ffc5d3}
-@media(max-width:760px){.dock-item.is-active::after{bottom:-.12rem;width:.25rem;height:.25rem;box-shadow:0 -.19rem 0 #ffc5d3,.18rem -.06rem 0 #ffc5d3,.12rem .15rem 0 #ffc5d3,-.12rem .15rem 0 #ffc5d3,-.18rem -.06rem 0 #ffc5d3}}
+.dock-item.is-active::after{bottom:-.28rem;width:.24rem;height:.24rem;border-radius:50%;background:#ffc5d3;box-shadow:0 -.18rem 0 #ffc5d3,.17rem -.06rem 0 #ffc5d3,.11rem .14rem 0 #ffc5d3,-.11rem .14rem 0 #ffc5d3,-.17rem -.06rem 0 #ffc5d3}
+@media(max-width:760px){.dock-item.is-active::after{bottom:-.18rem;width:.2rem;height:.2rem;box-shadow:0 -.15rem 0 #ffc5d3,.14rem -.05rem 0 #ffc5d3,.09rem .11rem 0 #ffc5d3,-.09rem .11rem 0 #ffc5d3,-.14rem -.05rem 0 #ffc5d3}}
+
+/* One shared indicator slides between the selected Dock items. */
+.dock-item.is-active::after{display:none}
+.dock-active-indicator{position:absolute;bottom:.43rem;left:0;width:.24rem;height:.24rem;border-radius:50%;background:#ffc5d3;box-shadow:0 -.18rem 0 #ffc5d3,.17rem -.06rem 0 #ffc5d3,.11rem .14rem 0 #ffc5d3,-.11rem .14rem 0 #ffc5d3,-.17rem -.06rem 0 #ffc5d3;opacity:0;pointer-events:none;transform:translateX(-50%);transition:left 300ms cubic-bezier(.22,1,.36,1),opacity 120ms ease;will-change:left}
+.dock-active-indicator.is-ready{opacity:1}
+@media(max-width:760px){.dock-active-indicator{bottom:.29rem;width:.2rem;height:.2rem;box-shadow:0 -.15rem 0 #ffc5d3,.14rem -.05rem 0 #ffc5d3,.09rem .11rem 0 #ffc5d3,-.09rem .11rem 0 #ffc5d3,-.14rem -.05rem 0 #ffc5d3}}
+
+
+/* Static CUR extracted from the supplied ANI, supported by Chrome on Windows. */
+body{cursor:url("../images/cursor/working-background.cur"),auto}
+a,button,[role="button"],.folder,.dock-item{cursor:url("../images/cursor/normal-select-6.cur") 14 0,pointer}
+
+/* Lightweight pastel sparkle trail, inspired by the supplied cursor effect. */
+.mouse-sparkle{position:fixed;z-index:30;width:9px;height:9px;color:#eb6f9b;pointer-events:none;will-change:transform,opacity}.mouse-sparkle::before,.mouse-sparkle::after{position:absolute;top:50%;left:50%;border-radius:999px;background:currentColor;box-shadow:0 0 6px color-mix(in srgb,currentColor 68%,transparent);content:"";transform:translate(-50%,-50%)}.mouse-sparkle::before{width:9px;height:2px}.mouse-sparkle::after{width:2px;height:9px}@media(prefers-reduced-motion:reduce){.mouse-sparkle{display:none}}
+
+/* A subtle halo improves CUR visibility over the sky-blue background. */
+.cursor-halo{position:fixed;z-index:29;width:20px;height:20px;border:1.5px solid rgba(255,255,255,.92);border-radius:50%;background:rgba(62,107,142,.16);box-shadow:0 0 0 1px rgba(55,94,122,.35),0 2px 7px rgba(45,79,103,.22);opacity:0;pointer-events:none;transform:translate(-50%,-50%);transition:opacity 120ms ease}.cursor-halo.is-visible{opacity:1}@media(prefers-reduced-motion:reduce){.cursor-halo{display:none}}
