@@ -50,5 +50,44 @@
     </div>
     <footer>© 2026 HYEIN. ALL RIGHTS RESERVED.</footer>
   </main>
+  <section class="archive-modal" aria-labelledby="finder-title" aria-hidden="true" hidden>
+    <div class="archive-modal__backdrop" data-modal-close></div>
+    <div class="finder-window" role="dialog" aria-modal="true" aria-labelledby="finder-title" tabindex="-1">
+      <header class="finder-window__header">
+        <div class="finder-controls" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="finder-title-group">
+          <span class="finder-folder-icon" aria-hidden="true"></span>
+          <div><h2 id="finder-title">01. PERSON</h2><p class="finder-count">0 items</p></div>
+        </div>
+        <div class="finder-actions" aria-label="보기 설정">
+          <button class="finder-view is-active" type="button" data-view="grid" aria-label="격자 보기" aria-pressed="true"><span aria-hidden="true">⊞</span></button>
+          <button class="finder-view" type="button" data-view="list" aria-label="목록 보기" aria-pressed="false"><span aria-hidden="true">☷</span></button>
+          <button class="finder-close" type="button" aria-label="팝업 닫기" data-modal-close>×</button>
+        </div>
+      </header>
+      <div class="finder-window__body">
+        <nav class="finder-sidebar" aria-label="작품 분류">
+          <button type="button" data-gallery-category="all"><span aria-hidden="true">⌂</span>All</button>
+          <button type="button" data-gallery-category="person"><span aria-hidden="true">♙</span>Person</button>
+          <button type="button" data-gallery-category="character"><span aria-hidden="true">♧</span>Character</button>
+          <button type="button" data-gallery-category="drawing"><span aria-hidden="true">▱</span>Drawing</button>
+          <button type="button" data-gallery-category="object"><span aria-hidden="true">◇</span>Object</button>
+        </nav>
+        <div class="finder-gallery-wrap">
+          <div class="finder-gallery" role="list" aria-live="polite"></div>
+        </div>
+      </div>
+      <div class="artwork-lightbox" aria-hidden="true" hidden>
+        <button class="artwork-lightbox__backdrop" type="button" aria-label="큰 이미지 닫기" data-lightbox-close></button>
+        <button class="artwork-lightbox__nav artwork-lightbox__nav--previous" type="button" aria-label="이전 이미지" data-lightbox-previous>‹</button>
+        <figure class="artwork-lightbox__content">
+          <img class="artwork-lightbox__image" src="" alt="" />
+          <figcaption class="artwork-lightbox__caption"></figcaption>
+          <button class="artwork-lightbox__close" type="button" aria-label="큰 이미지 닫기" data-lightbox-close>×</button>
+        </figure>
+        <button class="artwork-lightbox__nav artwork-lightbox__nav--next" type="button" aria-label="다음 이미지" data-lightbox-next>›</button>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
